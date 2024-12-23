@@ -3,34 +3,51 @@ import React, { useEffect } from 'react';
 import Category from './Components/category';
 
 function App() {
-  const [results, setResults] = React.useState([]);
+  const [categories, setCategories] = React.useState([]);
+  const [products, setProducts] = React.useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3001/categories')
       .then(response => response.json())
-      .then(data => setResults(data));
+      .then(data => setCategories(data));
   }, []);
 
+  const handleCategoryClick = id => {
+    fetch('http://localhost:3001/products?categoryId=' + id)
+      .then(response => response.json())
+      .then(data => setProducts(data));
+  }
+
   const renderCategories = () => {
-    return results.map(result => (
-      <Category key={result.id} id={result.id} title={result.title} />
+    return categories.map(result => (
+      <Category key={result.id} id={result.id} title={result.title} onCategoryClick={() => handleCategoryClick(result.id)} />
+    ))
+  }
+
+  const renderProducts = () => {
+    return products.map(result => (
+      <div key={result.id} className='product-list'>
+        <div>{result.title}</div>
+        <div>{result.price}</div>
+      </div>
     ))
   }
 
   return (
     <>
-      <body>
+      <div className='app-container'>
         <header className='header'>T1 Store</header>
         <section className='main-content'>
           <nav>
-            {results && renderCategories()}
+            {categories && renderCategories()}
           </nav>
           <article>
-            Main content
+            <h1>Products</h1>
+            {products && renderProducts()}
           </article>
         </section>
         <footer className='footer'>© 2024 T1 Store</footer>
-      </body>
+      </div>
     </>
   );
 }

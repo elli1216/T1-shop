@@ -15,30 +15,40 @@
 body {
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   background-color: var(--background-color);
 }
-body .header {
+
+.app-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+.app-container .header {
   background-color: var(--header-color);
   color: var(--font-color);
   padding: 30px;
   text-align: center;
   font-size: 2rem;
 }
-body .main-content {
+.app-container .main-content {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 20px;
 }
-body .main-content nav {
+.app-container .main-content nav {
   background-color: var(--section-color);
   color: var(--font-color);
 }
-body .main-content nav .category-list {
+.app-container .main-content nav .category-list {
+  width: -moz-fit-content;
+  width: fit-content;
   padding: 10px;
 }
-body .footer {
+.app-container .main-content nav .category-list:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.app-container .footer {
   background-color: var(--footer-color);
   color: var(--font-color);
   padding: 10px;
