@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  padding: none;
+  margin: none;
+}
+
+:root {
+  --header-color: #000000;
+  --background-color: #FFFFFF;
+  --font-color: #DBDBDB;
+  --section-color: #E2002D;
+  --footer-color: #000000;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: var(--background-color);
+}
+body .header {
+  background-color: var(--header-color);
+  color: var(--font-color);
+  padding: 30px;
+  text-align: center;
+  font-size: 2rem;
+}
+body .main-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+}
+body .main-content nav {
+  background-color: var(--section-color);
+  color: var(--font-color);
+}
+body .main-content nav .category-list {
+  padding: 10px;
+}
+body .footer {
+  background-color: var(--footer-color);
+  color: var(--font-color);
+  padding: 10px;
+}/*# sourceMappingURL=App.css.map */
