@@ -2,6 +2,7 @@ import './css/App.css';
 import { getCategories, getProducts } from './fetcher';
 import React, { useEffect } from 'react';
 import Category from './Components/category';
+import CategoryProduct from './Components/categoryProduct';
 
 function App() {
   const [categories, setCategories] = React.useState({errorMessage: '', data: []});
@@ -31,10 +32,7 @@ function App() {
 
   const renderProducts = () => {
     return products.data.map(result => (
-      <div key={result.id} className='product-list'>
-        <div>{result.title}</div>
-        <div>{result.price}</div>
-      </div>
+      <CategoryProduct {...result}>{result.title}</CategoryProduct>
     ))
   }
 
@@ -47,11 +45,11 @@ function App() {
             {categories.errorMessage && <div>{categories.errorMessage}</div>}
             {categories.data && renderCategories()}
           </nav>
-          <article>
+          <main>
             <h1>Products</h1>
             {products.errorMessage && <div>{products.errorMessage}</div>}
             {products && renderProducts()}
-          </article>
+          </main>
         </section>
         <footer className='footer'>© 2024 T1 Store</footer>
       </div>

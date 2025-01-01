@@ -6,6 +6,11 @@ export const fetcher = async (url) => {
   try {
     const response = await fetch(BASE_URL + url);
     const responseData = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     responseObject.errorMessage = '';
     responseObject.data = responseData;
   } catch (error) {

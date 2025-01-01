@@ -19,13 +19,17 @@
       "id": 1,
       "categoryId": 1,
       "title": "T1 Logo T-Shirt - Grey",
-      "price": 2400.69
+      "price": 2400.69,
+      "image": "T1-Logo-Tee-Grey.jpg",
+      "stock": 100
     },
     {
       "id": 2,
       "categoryId": 1,
       "title": "T1 Players T-Shirt - Faker",
-      "price": 2303.69
+      "price": 2303.69,
+      "image": "faker-teejpg.jpg",
+      "stock": 100
     }
   ]
 }
