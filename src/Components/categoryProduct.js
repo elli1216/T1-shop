@@ -1,11 +1,14 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const CategoryProduct = ({ title, image, price, stock }) => {
+const CategoryProduct = ({ id, title, image, price, stock }) => {
+  const navigate = useNavigate();
+
   return (
     <article>
       <div className="col-1">
         <div className="category-product-title">
-          {title}
+          <Link to={`/products/${id}`}>{title}</Link>
         </div>
 
         <figure>
@@ -22,7 +25,7 @@ const CategoryProduct = ({ title, image, price, stock }) => {
           </div>
         </div>
         <div className="category-product-action">
-          <button className="view-product-action-button">View Product</button>
+          <button onClick={() => navigate(`products/${id}`)} className="view-product-action-button">View Product</button>
           <button className="category-product-action-button">Add to Cart</button>
         </div>
       </aside>
