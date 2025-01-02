@@ -1,25 +1,24 @@
 import React from "react";
 
-const CategoryProduct = ({title, image, price, stock}) => {
+const CategoryProduct = ({ title, image, price, stock }) => {
   return (
     <article>
-      <div className="category-product-title">
-        {title}
-      </div>
-
-      <figure>
-        <div className="category-product-image-container">
-          <img src={`./assets/images/${image}`} alt={title}/>
+      <div className="col-1">
+        <div className="category-product-title">
+          {title}
         </div>
-      </figure>
+
+        <figure>
+          <div className="category-product-image-container">
+            <img src={`./assets/images/${image}`} alt={title} width={`230rem`} />
+          </div>
+        </figure>
+      </div>
 
       <aside>
         <div className="category-product-finance">
           <div className="category-product-finance-price">
-            {price}
-          </div>
-          <div className="category-product-info-stock">
-            <label>Stock Level: {stock}</label>
+            PHP {price}
           </div>
         </div>
         <div className="category-product-action">

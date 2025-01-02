@@ -5,8 +5,8 @@ import Category from './Components/category';
 import CategoryProduct from './Components/categoryProduct';
 
 function App() {
-  const [categories, setCategories] = React.useState({errorMessage: '', data: []});
-  const [products, setProducts] = React.useState({errorMessage: '', data: []});
+  const [categories, setCategories] = React.useState({ errorMessage: '', data: [] });
+  const [products, setProducts] = React.useState({ errorMessage: '', data: [] });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,14 +32,14 @@ function App() {
 
   const renderProducts = () => {
     return products.data.map(result => (
-      <CategoryProduct {...result}>{result.title}</CategoryProduct>
+      <CategoryProduct key={result.id} {...result}>{result.title}</CategoryProduct>
     ))
   }
 
   return (
     <>
       <div className='app-container'>
-        <header className='header'>T1 Store</header>
+        <header className='header'><img src='./assets/images/T1-Logo.jpg' alt='T1 Logo' /></header>
         <section className='main-content'>
           <nav>
             {categories.errorMessage && <div>{categories.errorMessage}</div>}
@@ -47,8 +47,10 @@ function App() {
           </nav>
           <main>
             <h1>Products</h1>
-            {products.errorMessage && <div>{products.errorMessage}</div>}
-            {products && renderProducts()}
+            <div className='products'>
+              {products.errorMessage && <div>{products.errorMessage}</div>}
+              {products && renderProducts()}
+            </div>
           </main>
         </section>
         <footer className='footer'>© 2024 T1 Store</footer>

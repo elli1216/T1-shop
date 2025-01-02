@@ -1,20 +1,26 @@
+:root {
+  --header-color: #000000;
+  --background-color: #FFFFFF;
+  --font-color: #DBDBDB;
+  --section-color: #E2002D;
+  --section-hover: #a70122;
+  --footer-color: #000000;
+  --button-color: #D3D3D3;
+  --button-hover: #A9A9AA;
+  --white: #ffffff;
+  --finance-bg: #D4D2D4;
+}
+
 * {
   box-sizing: border-box;
   padding: none;
   margin: none;
 }
 
-:root {
-  --header-color: #000000;
-  --background-color: #FFFFFF;
-  --font-color: #DBDBDB;
-  --section-color: #E2002D;
-  --footer-color: #000000;
-}
-
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   height: 100vh;
+  max-width: 100vw;
   background-color: var(--background-color);
 }
 
@@ -25,7 +31,6 @@ body {
 }
 .app-container .header {
   background-color: var(--header-color);
-  color: var(--font-color);
   padding: 30px;
   text-align: center;
   font-size: 2rem;
@@ -37,16 +42,74 @@ body {
 }
 .app-container .main-content nav {
   background-color: var(--section-color);
-  color: var(--font-color);
+  color: var(--white);
+  padding: 20px 0;
 }
 .app-container .main-content nav .category-list {
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 10px;
+  padding: 10px 20px;
+  margin: 5px;
 }
 .app-container .main-content nav .category-list:hover {
   cursor: pointer;
-  text-decoration: underline;
+  background-color: var(--section-hover);
+  border-radius: 10px;
+}
+.app-container .main-content main {
+  display: grid;
+  grid-template-rows: 70px auto;
+}
+.app-container .main-content main .products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+.app-container .main-content main .products article {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.app-container .main-content main .products article .col-1 {
+  display: grid;
+  justify-items: center;
+}
+.app-container .main-content main .products article .col-1 .category-product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.app-container .main-content main .products article aside {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 10rem;
+  grid-gap: 20px;
+  padding: 10px;
+}
+.app-container .main-content main .products article aside .category-product-finance {
+  background-color: var(--finance-bg);
+  border-radius: 10px;
+  font-size: larger;
+  font-weight: 700;
+  padding: 10px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+.app-container .main-content main .products article aside .category-product-action {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 6rem;
+  grid-gap: 5px;
+  justify-content: center;
+}
+.app-container .main-content main .products article aside .category-product-action .view-product-action-button, .app-container .main-content main .products article aside .category-product-action .category-product-action-button {
+  padding: 2px;
+  background-color: var(--button-color);
+  border-radius: 5px;
+}
+.app-container .main-content main .products article aside .category-product-action .view-product-action-button:hover, .app-container .main-content main .products article aside .category-product-action .category-product-action-button:hover {
+  cursor: pointer;
+  background-color: var(--button-hover);
 }
 .app-container .footer {
   background-color: var(--footer-color);
