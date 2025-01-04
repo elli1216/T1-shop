@@ -1,0 +1,56 @@
+article{
+  display: grid;
+  grid-template-columns: 300px 300px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+  .col-1{
+    display: grid;
+    justify-items: center;
+
+    .category-product-title{
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+
+  aside{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 10rem;
+    grid-gap: 20px;
+    padding: 10px;
+
+    .category-product-finance{
+      background-color: var(--finance-bg);
+      border-radius: 10px;
+      font-size: larger;
+      font-weight: 700;
+      padding: 10px;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .category-product-action{
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 6rem;
+      grid-gap: 5px;
+      justify-content: center;
+
+      .view-product-action-button, .category-product-action-button{
+        padding: 2px;
+        background-color: var(--button-color);
+        border-radius: 5px;
+
+        &:hover{
+          cursor: pointer;
+          background-color: var(--button-hover);
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,7 @@
 import './css/App.css';
 import { getCategories, getProducts } from './fetcher';
 import React, { useEffect } from 'react';
-import Category from './Components/category';
-import CategoryProduct from './Components/categoryProduct';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [categories, setCategories] = React.useState({ errorMessage: '', data: [] });
@@ -26,13 +25,7 @@ function App() {
 
   const renderCategories = () => {
     return categories.data.map(result => (
-      <Category key={result.id} id={result.id} title={result.title} onCategoryClick={() => handleCategoryClick(result.id)} />
-    ))
-  }
-
-  const renderProducts = () => {
-    return products.data.map(result => (
-      <CategoryProduct key={result.id} {...result}>{result.title}</CategoryProduct>
+      <li key={result.id}><Link to={`categories/${result.id}`}>{result.title}</Link></li>
     ))
   }
 
@@ -43,14 +36,12 @@ function App() {
         <section className='main-content'>
           <nav>
             {categories.errorMessage && <div>{categories.errorMessage}</div>}
-            {categories.data && renderCategories()}
+            <ul>
+              {categories.data && renderCategories()}
+            </ul>
           </nav>
           <main>
-            <h1>Products</h1>
-            <div className='products'>
-              {products.errorMessage && <div>{products.errorMessage}</div>}
-              {products && renderProducts()}
-            </div>
+            <h1>Welcome</h1>
           </main>
         </section>
         <footer className='footer'>© 2024 T1 Store</footer>

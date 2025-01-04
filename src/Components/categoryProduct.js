@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const CategoryProduct = ({ id, title, image, price, stock }) => {
+const CategoryProduct = ({ id, title, image, price }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,7 @@ const CategoryProduct = ({ id, title, image, price, stock }) => {
 
         <figure>
           <div className="category-product-image-container">
-            <img src={`./assets/images/${image}`} alt={title} width={`230rem`} />
+            <img src={`/assets/images/${image}`} alt={title} width={`230rem`} />
           </div>
         </figure>
       </div>

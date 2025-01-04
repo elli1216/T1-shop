@@ -15,6 +15,7 @@
   box-sizing: border-box;
   padding: none;
   margin: none;
+  text-decoration: none;
 }
 
 body {
@@ -42,14 +43,18 @@ body {
 }
 .app-container .main-content nav {
   background-color: var(--section-color);
-  color: var(--white);
   padding: 20px 0;
 }
-.app-container .main-content nav .category-list {
+.app-container .main-content nav ul {
+  padding: 0;
+}
+.app-container .main-content nav ul li {
+  color: var(--white);
+  list-style: none;
   padding: 10px 20px;
   margin: 5px;
 }
-.app-container .main-content nav .category-list:hover {
+.app-container .main-content nav ul li:hover {
   cursor: pointer;
   background-color: var(--section-hover);
   border-radius: 10px;
@@ -110,6 +115,18 @@ body {
 .app-container .main-content main .products article aside .category-product-action .view-product-action-button:hover, .app-container .main-content main .products article aside .category-product-action .category-product-action-button:hover {
   cursor: pointer;
   background-color: var(--button-hover);
+}
+.app-container .main-content main .products :root {
+  --header-color: #000000;
+  --background-color: #FFFFFF;
+  --font-color: #DBDBDB;
+  --section-color: #E2002D;
+  --section-hover: #a70122;
+  --footer-color: #000000;
+  --button-color: #D3D3D3;
+  --button-hover: #A9A9AA;
+  --white: #ffffff;
+  --finance-bg: #D4D2D4;
 }
 .app-container .footer {
   background-color: var(--footer-color);

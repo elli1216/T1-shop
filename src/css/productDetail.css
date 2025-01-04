@@ -1,0 +1,62 @@
+article {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+article .col-1 {
+  display: grid;
+  justify-items: center;
+}
+article .col-1 .category-product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+article aside {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 10rem;
+  grid-gap: 20px;
+  padding: 10px;
+}
+article aside .category-product-finance {
+  background-color: var(--finance-bg);
+  border-radius: 10px;
+  font-size: larger;
+  font-weight: 700;
+  padding: 10px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+article aside .category-product-action {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 6rem;
+  grid-gap: 5px;
+  justify-content: center;
+}
+article aside .category-product-action .view-product-action-button, article aside .category-product-action .category-product-action-button {
+  padding: 2px;
+  background-color: var(--button-color);
+  border-radius: 5px;
+}
+article aside .category-product-action .view-product-action-button:hover, article aside .category-product-action .category-product-action-button:hover {
+  cursor: pointer;
+  background-color: var(--button-hover);
+}
+
+:root {
+  --header-color: #000000;
+  --background-color: #FFFFFF;
+  --font-color: #DBDBDB;
+  --section-color: #E2002D;
+  --section-hover: #a70122;
+  --footer-color: #000000;
+  --button-color: #D3D3D3;
+  --button-hover: #A9A9AA;
+  --white: #ffffff;
+  --finance-bg: #D4D2D4;
+}/*# sourceMappingURL=productDetail.css.map */
