@@ -1,11 +1,16 @@
 import './css/App.css';
-import { getCategories, getProducts } from './fetcher';
+import { getCategories } from './fetcher';
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './Components/layout';
+import ProductDetail from './Components/productDetail';
+import Checkout from './Components/checkout';
+import Basket from './Components/basket';
+import Category from './Components/category';
+import Home from './Components/home';
 
 function App() {
   const [categories, setCategories] = React.useState({ errorMessage: '', data: [] });
-  const [products, setProducts] = React.useState({ errorMessage: '', data: [] });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,37 +20,20 @@ function App() {
     fetchData();
   }, []);
 
-  const handleCategoryClick = id => {
-    const fetchData = async () => {
-      const responseObject = await getProducts(id);
-      setProducts(responseObject);
-    }
-    fetchData();
-  }
-
-  const renderCategories = () => {
-    return categories.data.map(result => (
-      <li key={result.id}><Link to={`categories/${result.id}`}>{result.title}</Link></li>
-    ))
-  }
-
   return (
     <>
-      <div className='app-container'>
-        <header className='header'><img src='./assets/images/T1-Logo.jpg' alt='T1 Logo' /></header>
-        <section className='main-content'>
-          <nav>
-            {categories.errorMessage && <div>{categories.errorMessage}</div>}
-            <ul>
-              {categories.data && renderCategories()}
-            </ul>
-          </nav>
-          <main>
-            <h1>Welcome</h1>
-          </main>
-        </section>
-        <footer className='footer'>© 2024 T1 Store</footer>
-      </div>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout categories={categories}/>}>
+          <Route index element={<Home/>}/>
+          <Route path="/products/:productId" element={<ProductDetail />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/basket' element={<Basket />} />
+          <Route path='/categories/:categoryId' element={<Category />} />
+        </Route>
+        <Route path='*' element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }

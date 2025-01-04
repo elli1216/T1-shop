@@ -25,7 +25,7 @@ const CategoryProduct = ({ id, title, image, price }) => {
           </div>
         </div>
         <div className="category-product-action">
-          <button onClick={() => navigate(`products/${id}`)} className="view-product-action-button">View Product</button>
+          <button onClick={() => navigate(`/products/${id}`)} className="view-product-action-button">View Product</button>
           <button className="category-product-action-button">Add to Cart</button>
         </div>
       </aside>
