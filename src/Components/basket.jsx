@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../css/basket.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../fontawesome';
@@ -6,12 +6,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/cartContext";
 
 const Basket = () => {
+  const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
   const { removeProduct, clearBasket, incrementQty, decrementQty, getItems, } = useContext(CartContext);
 
-  const renderCart = () => {
-    const cartItems = getItems();
+  useEffect(() => {
+    setCartItems(getItems());
+  }, [getItems]);
 
+  const renderCart = () => {
     if (cartItems.length > 0) {
       return cartItems.map((item, index) => {
         return (
@@ -20,9 +23,9 @@ const Basket = () => {
             <div className="item-quantity">
               <h4 className="qty-number">{item.quantity}</h4>
               <div className="icons">
-                <FontAwesomeIcon className="icon" onClick={() => incrementQty({id: item.id})} icon="circle-plus" />
-                <FontAwesomeIcon className="icon" onClick={() => decrementQty({id: item.id})} icon="circle-minus" />
-                <FontAwesomeIcon className="icon" onClick={() => removeProduct({id: item.id})} icon="trash" />
+                <FontAwesomeIcon className="icon" onClick={() => setCartItems(incrementQty({id: item.id}))} icon="circle-plus" />
+                <FontAwesomeIcon className="icon" onClick={() => setCartItems(decrementQty({id: item.id}))} icon="circle-minus" />
+                <FontAwesomeIcon className="icon" onClick={() => setCartItems(removeProduct({id: item.id}))} icon="trash" />
               </div>
             </div>
             <div className="item-price">PHP {item.price}</div>
@@ -32,6 +35,16 @@ const Basket = () => {
     } else {
       return <div className="basket-item">No items in the basket</div>;
     }
+  }
+
+  const renderTotal = () => {
+    const cartItems = getItems();
+    
+    const total = cartItems.reduce((total, item) => {
+      return total + (item.price * item.quantity);
+    }, 0);
+
+    return total;
   }
 
   return (
@@ -51,8 +64,8 @@ const Basket = () => {
         <div className="line-div"></div>
       </div>
       <div className="row-3">
-        <button onClick={() => clearBasket()}>Clear</button>
-        <h3>Total:</h3>
+        <button onClick={() => setCartItems(clearBasket())}>Clear</button>
+        <h3>Total: PHP{renderTotal()}</h3>
       </div>
     </div>
   );

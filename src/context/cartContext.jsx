@@ -10,22 +10,27 @@ const CartContextProvider = ({children}) => {
 
   const addProduct = payload => {
     dispatch({ type: 'ADD_PRODUCT', payload });
+    return state.cartItems;
   };
 
   const removeProduct = payload => {
     dispatch({ type: 'REMOVE_PRODUCT', payload });
+    return state.cartItems;
   };
 
   const clearBasket = () => {
     dispatch({ type: 'CLEAR_BASKET', payload: undefined });
+    return state.cartItems;
   };
 
   const incrementQty = payload => {
     dispatch({ type: 'INCREMENT_QTY', payload });
+    return state.cartItems;
   };
 
   const decrementQty = payload => {
     dispatch({ type: 'DECREMENT_QTY', payload });
+    return state.cartItems;
   };
 
   const getItems = () => {

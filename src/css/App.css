@@ -28,14 +28,22 @@ body {
 
 .app-container {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 6.5rem 3fr auto;
   height: 100vh;
 }
 .app-container .header {
   background-color: var(--header-color);
-  padding: 30px;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.app-container .header .icon {
   font-size: 2rem;
+}
+.app-container .header .icon:hover {
+  cursor: pointer;
 }
 .app-container .main-content {
   display: grid;

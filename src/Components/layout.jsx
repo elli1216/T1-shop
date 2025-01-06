@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../fontawesome';
 
 const Layout = ({ categories }) => {
   const renderCategories = () => {
@@ -11,7 +13,11 @@ const Layout = ({ categories }) => {
   return(
     <>
       <div className='app-container'>
-        <header className='header'><img src='/assets/images/T1-Logo.jpg' alt='T1 Logo' /></header>
+        <header className='header'>
+          <Link to='/'><h1><FontAwesomeIcon className="icon" icon="home" color="white"/></h1></Link>
+          <img src='/assets/images/T1-Logo.jpg' alt='T1 Logo' />
+          <Link to='/basket'><FontAwesomeIcon className="icon" icon="shopping-cart" color="white"/></Link>
+        </header>
         <section className='main-content'>
           <nav>
             {categories.errorMessage && <div>{categories.errorMessage}</div>}
@@ -25,10 +31,6 @@ const Layout = ({ categories }) => {
         </section>
         <footer className='footer'>
           <p>&copy; 2021 T1 Store</p>
-          <div className="footer-links">
-            <Link className="home-link" to='/'>Home</Link>
-            <Link to='/basket'>Basket</Link>
-          </div>
         </footer>
       </div>
     </>
