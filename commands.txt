@@ -1,0 +1,5 @@
+npm start
+json-server --watch src/db/db.json --port 3001
+git add .
+git commit -m "message"
+git push -u origin main

@@ -38,6 +38,14 @@
       "price": 2264.28,
       "image": "keriaTee.jpg",
       "stock": 100
+    },
+    {
+      "id": 4,
+      "categoryId": 1,
+      "title": "T1 Bomber Jacket Black",
+      "price": 5836.83,
+      "image": "bomber-black.jpg",
+      "stock": 100
     }
   ]
 }

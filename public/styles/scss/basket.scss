@@ -1,0 +1,105 @@
+@import 'colors';
+
+.basket-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .row-1{
+    height: 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 10px 0;
+    margin-right: 10px;
+
+    h1{
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    button{
+      width: 6rem;
+      padding: 10px;
+      border: 2px solid black;
+      border-radius: 10px;
+      
+      &:hover{
+        background-color: rgb(222, 222, 222);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .table-container{
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    margin-right: 10px;
+
+    .table-title{
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      padding: 5px 0;
+
+      h4{
+        margin: 0;
+      }
+    }
+
+    .basket-item{
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      padding: 10px 0;
+
+      .item-quantity{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 40px;
+
+        .icons{
+          display: flex;
+          gap: 3px;
+
+          .icon{
+            border-radius: 50%;
+            &:hover{
+              box-shadow: 0 0 5px 0.5px black;
+              cursor: pointer;
+            }
+          }
+        }
+
+        h4{
+          margin: 0;
+        }
+      }
+    }
+
+    .line-div{
+      border-bottom: 1px solid black;
+    }
+  }
+
+  .row-3{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 10px 0;
+
+    button{
+      display: grid;
+      width: 3.5rem;
+      padding: 5px;
+      border: 1.5px solid black;
+      border-radius: 10px;
+
+      &:hover{
+        background-color: rgb(222, 222, 222);
+        cursor: pointer;
+      }
+    }
+
+    h3{
+      margin: 0;
+    }
+  }
+}

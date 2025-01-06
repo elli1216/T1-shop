@@ -1,9 +1,14 @@
 export const CartReducer = (state, action) => {
-  switch(action.type) {
-    case 'ADD_PRODUCT':
-      const index = state.cartItems.findIndex(item => item.id === action.payload.id);
+  let index = -1;
 
-      if(index === -1) {
+  if (action.payload) {
+    index = state.cartItems.findIndex(item => item.id === action.payload.id);
+  }
+
+  switch (action.type) {
+    case 'ADD_PRODUCT':
+    case 'INCREMENT_QTY':
+      if (index === -1) {
         state.cartItems.push({
           ...action.payload,
           quantity: 1
@@ -11,19 +16,28 @@ export const CartReducer = (state, action) => {
       } else {
         state.cartItems[index].quantity++;
       }
-      return state;
+      break;
 
     case 'REMOVE_PRODUCT':
-      return {
-        ...state,
-        cartItems: state.cartItems.filter(item => item.id !== action.payload)
-      };
-    case 'CLEAR_CART':
-      return {
-        ...state,
-        cartItems: []
-      };
+      if (index !== -1) {
+        state.cartItems.splice(index, 1);
+      }
+      break;
+
+    case 'CLEAR_BASKET':
+      state.cartItems = [];
+      break;
+
+    case 'DECREMENT_QTY':
+      if (index !== -1) {
+        state.cartItems[index].quantity--;
+        if (state.cartItems[index].quantity === 0) {
+          state.cartItems.splice(index, 1);
+        }
+      }
+      break;
+
     default:
-      return state;
   }
+  return state;
 }
