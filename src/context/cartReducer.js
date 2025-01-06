@@ -19,7 +19,7 @@ export const CartReducer = (state, action) => {
       break;
 
     case 'REMOVE_PRODUCT':
-      if (index !== -1) {
+      if (index > -1) {
         state.cartItems.splice(index, 1);
       }
       break;
@@ -29,7 +29,7 @@ export const CartReducer = (state, action) => {
       break;
 
     case 'DECREMENT_QTY':
-      if (index !== -1) {
+      if (index > -1) {
         state.cartItems[index].quantity--;
         if (state.cartItems[index].quantity === 0) {
           state.cartItems.splice(index, 1);

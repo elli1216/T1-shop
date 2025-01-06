@@ -28,8 +28,8 @@ const CartContextProvider = ({children}) => {
     dispatch({ type: 'DECREMENT_QTY', payload });
   };
 
-  const getItemsCount = () => {
-    return state.cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const getItems = () => {
+    return state.cartItems;
   };
 
   const contextValues = {
@@ -38,7 +38,7 @@ const CartContextProvider = ({children}) => {
     clearBasket,
     incrementQty,
     decrementQty,
-    getItemsCount,
+    getItems,
     ...state
   };
 
