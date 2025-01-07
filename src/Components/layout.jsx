@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../fontawesome';
+import Search from './search';
 
 const Layout = ({ categories }) => {
   const renderCategories = () => {
@@ -15,6 +16,7 @@ const Layout = ({ categories }) => {
       <div className='app-container'>
         <header className='header'>
           <Link to='/'><h1><FontAwesomeIcon className="icon" icon="home" color="white"/></h1></Link>
+          <Search />
           <img src='/assets/images/T1-Logo.jpg' alt='T1 Logo' />
           <Link to='/basket'><FontAwesomeIcon className="icon" icon="shopping-cart" color="white"/></Link>
         </header>

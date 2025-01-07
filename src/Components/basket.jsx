@@ -28,7 +28,7 @@ const Basket = () => {
                 <FontAwesomeIcon className="icon" onClick={() => setCartItems(removeProduct({id: item.id}))} icon="trash" />
               </div>
             </div>
-            <div className="item-price">PHP {item.price}</div>
+            <div className="item-price">PHP {item.price.toFixed(2)}</div>
           </div>
         );
       });

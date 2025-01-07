@@ -8,6 +8,8 @@ import Checkout from './Components/checkout';
 import Basket from './Components/basket';
 import Category from './Components/category';
 import Home from './Components/home';
+import OrderConfirmation from './Components/orderConfirmation';
+import SearchResults from './Components/searchResults';
 
 function App() {
   const [categories, setCategories] = React.useState({ errorMessage: '', data: [] });
@@ -28,8 +30,10 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path='/checkout' element={<Checkout />} />
+          <Route path='/orderConfirmation' element={<OrderConfirmation />} />
           <Route path='/basket' element={<Basket />} />
           <Route path='/categories/:categoryId' element={<Category />} />
+          <Route path='/search' element={<SearchResults />} />
         </Route>
         <Route path='*' element={<h1>404 Not Found</h1>} />
       </Routes>

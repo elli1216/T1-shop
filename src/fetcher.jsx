@@ -30,3 +30,7 @@ export const getProducts = (categoryId) => {
 export const getProductById = (productId) => {
   return fetcher("/products/" + productId);
 }
+
+export const getProductsByQuery = query => {
+  return fetcher("/products?q=" + query);
+}

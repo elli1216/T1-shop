@@ -1,0 +1,85 @@
+:root {
+  --header-color: #000000;
+  --background-color: #FFFFFF;
+  --font-color: #DBDBDB;
+  --section-color: #E2002D;
+  --section-hover: #a70122;
+  --footer-color: #000000;
+  --button-color: #D3D3D3;
+  --button-hover: #A9A9AA;
+  --white: #ffffff;
+  --finance-bg: #D4D2D4;
+}
+
+.checkout-container {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  margin-right: 10px;
+}
+.checkout-container .checkout-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+.checkout-container .details {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.checkout-container .details .details-title {
+  display: grid;
+  grid-template-rows: 2rem 1px;
+  padding-top: 10px;
+}
+.checkout-container .details .details-title h4 {
+  margin: 0;
+  display: grid;
+  align-items: center;
+}
+.checkout-container .details .details-title .line-div {
+  border-bottom: 1px solid black;
+}
+.checkout-container .details .details-form {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, auto 1fr) 1fr;
+  padding-top: 10px;
+  grid-gap: 10px;
+}
+.checkout-container .address-details {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.checkout-container .address-details .title {
+  display: grid;
+  grid-template-rows: 2rem 1px;
+  padding-top: 10px;
+}
+.checkout-container .address-details .title h4 {
+  margin: 0;
+  display: grid;
+  align-items: center;
+}
+.checkout-container .address-details .title .line-div {
+  border-bottom: 1px solid black;
+}
+.checkout-container .address-details .address-form {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  padding-top: 10px;
+  grid-gap: 15px;
+}
+.checkout-container .address-details .address-form .address-inputs {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+}
+.checkout-container .address-details .address-form .buttons {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 10px;
+  width: 100%;
+  justify-items: end;
+}
+.checkout-container .address-details .address-form .buttons button {
+  padding: 5px;
+}/*# sourceMappingURL=checkout.css.map */

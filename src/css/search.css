@@ -1,0 +1,16 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+.search-container label {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.search-container input {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  height: 23px;
+  margin-top: 5px;
+}/*# sourceMappingURL=search.css.map */
